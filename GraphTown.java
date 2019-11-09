@@ -17,7 +17,8 @@ public class GraphTown{
 
     // inserts an edge between any two towns/cities 
     // passed as argument to this method
-    public insertEdge(){}
+    public insertEdge(){
+    }
 
     // deletes an edge between any two towns passed as 
     // argument to this method
@@ -34,8 +35,8 @@ public class GraphTown{
             graph.add(town);
         }else{
             for (Node nd : graph) {
-                for (Node edgeNd : nd.edges) {
-                    if(edgeNd.label.equals(town.label)){
+                for (Edge edge : nd.edges) {
+                    if(edgeNd.destination.label.equals(town.label){
                       graph.add(town);
                       conFound = True;
                       return;
