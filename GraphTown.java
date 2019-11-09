@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class GraphTown{
 
     ArrayList<Node> graph;
 
     // Constructor 
-    public GraphTown(){
+    public  GraphTown(){
          graph = new ArrayList<Node>();
     }
 
@@ -17,7 +18,7 @@ public class GraphTown{
 
     // inserts an edge between any two towns/cities 
     // passed as argument to this method
-    public insertEdge(Node townOne, Node townTwo, int weight){
+    public void insertEdge(Node townOne, Node townTwo, int weight){
         // adding edge to first town
         Edge one = new Edge();
         one.destination = townTwo;
@@ -34,12 +35,12 @@ public class GraphTown{
 
     // deletes an edge between any two towns passed as 
     // argument to this method
-    public deleteEdge(){}
+    public void deleteEdge(){}
 
     // inserts a town into graph data structure. 
     // This call for assigning edges to at least one other 
     // town in order to make sure that the graph is connected
-    public insertTown(Node town){
+    public void insertTown(Node town){
         // Checks if there is a connection
         boolean conFound = false;
 
@@ -48,9 +49,9 @@ public class GraphTown{
         }else{
             for (Node nd : graph) {
                 for (Edge edge : nd.edges) {
-                    if(edgeNd.destination.label.equals(town.label){
+                    if(edge.destination.label.equals(town.label)){
                       graph.add(town);
-                      conFound = True;
+                      conFound = true;
                       return;
                     }
                 }
@@ -60,16 +61,15 @@ public class GraphTown{
     }
 
     // delete any town that is supplied to this method as an 
-    // argument. Note that when you delete a town, you must 
-    // delete all edges to all other towns before deleting this town
-    public deleteTown(){}
+    // argument. Delete all edges to all other towns before deleting this town
+    public void deleteTown(){}
 
     // pass a list of towns as arguments to this method which declares
     // the list as neighbors of this town.
-    public assignNeighbours(){}
+    public void assignNeighbours(){}
 
     // create a minimum spanning tree and print such tree for us to see
-    public showMST(){}
+    public void showMST(){}
 
     // defines a vertex in a graph
     public class Node{
