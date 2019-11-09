@@ -25,7 +25,19 @@ public class GraphTown{
     // the list as neighbors of this town.
     public assignNeighbours(){}
 
-    //create a minimum spanning tree and print such tree for us to see
+    // create a minimum spanning tree and print such tree for us to see
     public showMST(){}
+
+    // defines a vertex in a graph
+    public class Node {
+        private String label;
+        private List<Edge> edges;
+    }
+
+    // defines edge associated with a vertex
+    public class Edge {
+        private Node destination;
+        private double weight;
+    }
 
 }
