@@ -17,7 +17,19 @@ public class GraphTown{
 
     // inserts an edge between any two towns/cities 
     // passed as argument to this method
-    public insertEdge(){
+    public insertEdge(Node townOne, Node townTwo, int weight){
+        // adding edge to first town
+        Edge one = new Edge();
+        one.destination = townTwo;
+        one.weight = weight;
+        townOne.edges.add(one);
+
+        // adding edge to second town
+        Edge two = new Edge();
+        two.destination = townTwo;
+        two.weight = weight;
+        townTwo.edges.add(two);
+
     }
 
     // deletes an edge between any two towns passed as 
