@@ -11,7 +11,7 @@ public class GraphTown{
     // argument to this method
     public deleteEdge(){}
 
-    // inserts a town into your graph data structure. 
+    // inserts a town into graph data structure. 
     // This call for assigning edges to at least one other 
     // town in order to make sure that the graph is connected
     public insertTown(){}
@@ -37,7 +37,7 @@ public class GraphTown{
     // defines edge associated with a vertex
     public class Edge {
         private Node destination;
-        private double weight;
+        private int weight;
     }
 
 }
