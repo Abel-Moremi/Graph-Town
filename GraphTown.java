@@ -63,7 +63,22 @@ public class GraphTown{
 
     // Inserts nodes into graph from text file 
     // as input
-    public void createGraph(){}
+    public void createGraph(String filename){
+        try {
+
+            File file = new File(filename);
+            Scanner scnr = new Scanner(file);
+
+            while(scnr.hasNext()){
+                insert(scnr.nextLine());
+                //System.out.println(scnr.nextLine());
+            }
+
+      }
+      catch(Exception e) {
+            System.out.println(e);
+      }
+    }
 
     // delete any town that is supplied to this method as an 
     // argument. Delete all edges to all other towns before deleting this town
@@ -87,5 +102,8 @@ public class GraphTown{
         private Node destination;
         private int weight;
     }
+
+    // running the program
+    public static void main(String[] args){}
 
 }
