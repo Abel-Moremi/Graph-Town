@@ -19,6 +19,7 @@ public class GraphTown{
     // inserts an edge between any two towns/cities 
     // passed as argument to this method
     public void insertEdge(Node townOne, Node townTwo, int weight){
+        
         // adding edge to first town
         Edge one = new Edge();
         one.destination = townTwo;
@@ -59,6 +60,10 @@ public class GraphTown{
             System.out.println("There is no connection to "+town.label+" vertex");
         }
     }
+
+    // Inserts nodes into graph from text file 
+    // as input
+    public void createGraph(){}
 
     // delete any town that is supplied to this method as an 
     // argument. Delete all edges to all other towns before deleting this town
