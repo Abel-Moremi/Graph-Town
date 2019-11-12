@@ -1,3 +1,5 @@
+import java.io.File;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,8 +72,8 @@ public class GraphTown{
             Scanner scnr = new Scanner(file);
 
             while(scnr.hasNext()){
-                insert(scnr.nextLine());
-                //System.out.println(scnr.nextLine());
+                //insert(scnr.nextLine());
+                System.out.println(scnr.nextLine());
             }
 
       }
@@ -104,6 +106,11 @@ public class GraphTown{
     }
 
     // running the program
-    public static void main(String[] args){}
+    public static void main(String[] args){
+
+        GraphTown test = new GraphTown();
+        test.createGraph("botswanaTownsAndCitiesData.txt");
+
+    }
 
 }

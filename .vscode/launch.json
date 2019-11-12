@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GraphTown",
+            "request": "launch",
+            "mainClass": "GraphTown",
+            "projectName": "Graph-Town_e2f56fea"
+        }
+    ]
+}
