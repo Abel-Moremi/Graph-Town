@@ -70,12 +70,46 @@ public class GraphTown{
 
             File file = new File(filename);
             Scanner scnr = new Scanner(file);
+            Boolean isFirstLine = true;
+            String[] headerTowns = new String[9];
+            String[] townTemp = new String[10];
+            String place = null;
 
             while(scnr.hasNext()){
-                //insert(scnr.nextLine());
-                System.out.println(scnr.nextLine());
+
+                if(isFirstLine){
+                    headerTowns = scnr.nextLine().split(", ");
+                    System.out.println("Fuck that shit");
+                    isFirstLine = false;
+                }else{
+                    //System.out.println(scnr.nextLine());
+
+                    townTemp = scnr.nextLine().split(", ");
+                    place = townTemp[0];
+                    townTemp[0] = "0";
+                    Node temp = new Node();
+                    temp.label = townTemp[0];
+
+                    for (int i = 1; i < townTemp.length; i++) {
+                        if(Integer.parseInt(townTemp[i]) != 0){
+                            Edge tempEdge = new Edge();
+                            Node tempDest = new Node();
+                            int j = i - 1;
+                            tempDest.label = headerTowns[j];
+                            tempEdge.destination = tempDest;
+                            //tempEdge.weight = Integer.parseInt(townTemp[i]);
+                            try { tempEdge.weight = Integer.parseInt(townTemp[i]); } catch (NumberFormatException nfe) { nfe.printStackTrace(); }
+                            //temp.edges.add(tempEdge);
+                        }
+                    }
+                    insertTown(temp);
+                }
             }
 
+            scnr.close();
+            for(Node elem : graph){
+                System.out.println(elem.label+"  ");
+            }
       }
       catch(Exception e) {
             System.out.println(e);

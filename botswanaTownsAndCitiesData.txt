@@ -1,4 +1,4 @@
-Gaborone, Francistown, Molepolole, Maun, Selebe-Phikwe, Serowe, Kanye, Mahalapye, Palapye, Lobatse, Jwaneng, Orapa
+Gaborone, Francistown, Molepolole, Maun, Selebe-Phikwe, Serowe, Kanye, Mahalapye, Palapye
 Gaborone, 0, 435, 55, 856, 402, 315, 93, 203, 275
 Francistown, 435, 0, 490, 491, 146, 211, 525, 245, 171
 Molepolole, 55, 490, 0, 882, 454, 319, 84, 254, 327
