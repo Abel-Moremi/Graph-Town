@@ -167,7 +167,29 @@ public class GraphTown{
     public void assignNeighbours(){}
 
     // create a minimum spanning tree and print such tree for us to see
-    public void showMST(){}
+    // using prims algorithm
+    public void showMST(String town){
+        if(isEmpty()){
+            System.out.println("The graph is empty");
+        }else{
+           Node startVertix = findNodeTowwn(town);
+           for (Edge edg : startVertix.edges) {
+               
+           } 
+        }
+    }
+
+    // finds the node in the adjacency list matching
+    // string town input
+    private Node findNodeTowwn(String town){
+        Node townNd = null;
+        for (Node node : graph) {
+            if(node.label.equals(town)){
+                return node;
+            }
+        }
+        return townNd;
+    }
 
     // defines a vertex in a graph
     public class Node{
