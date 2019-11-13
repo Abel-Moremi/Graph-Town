@@ -45,17 +45,14 @@ public class GraphTown{
     // town in order to make sure that the graph is connected
     public void insertTown(Node town){
         // Checks if there is a connection
-        boolean conFound = false;
-
         if(isEmpty()){
             graph.add(town);
         }else{
-            for (Node nd : graph) {
-                for (Edge edge : nd.edges) {
-                    if(edge.destination.label.equals(town.label)){
+            for (Edge edg : town.edges) {
+                for (Node nd : graph) {
+                    if((nd.label).equals(edg.destination.label)){
                         graph.add(town);
                         System.out.println("I came here");
-                        conFound = true;
                         return;
                     }
                 }
@@ -79,11 +76,11 @@ public class GraphTown{
             while(scnr.hasNext()){
 
                 if(isFirstLine){
+
                     headerTowns = scnr.nextLine().split(", ");
-                    System.out.println("Fuck that shit");
                     isFirstLine = false;
+
                 }else{
-                    //System.out.println(scnr.nextLine());
 
                     townTemp = scnr.nextLine().split(", ");
                     place = townTemp[0];
@@ -98,7 +95,6 @@ public class GraphTown{
                             int j = i - 1;
                             tempDest.label = headerTowns[j];
                             tempEdge.destination = tempDest;
-                            //tempEdge.weight = Integer.parseInt(townTemp[i]);
                             try { tempEdge.weight = Integer.parseInt(townTemp[i]); } catch (NumberFormatException nfe) { nfe.printStackTrace(); }
                             temp.edges.add(tempEdge);
                         }
