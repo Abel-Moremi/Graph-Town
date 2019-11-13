@@ -52,7 +52,6 @@ public class GraphTown{
                 for (Node nd : graph) {
                     if((nd.label).equals(edg.destination.label)){
                         graph.add(town);
-                        System.out.println("I came here");
                         return;
                     }
                 }
@@ -102,15 +101,27 @@ public class GraphTown{
                     insertTown(temp);
                 }
             }
-
             scnr.close();
-            for(Node elem : graph){
-                System.out.println(elem.label+"  ");
-            }
       }
       catch(Exception e) {
             System.out.println(e);
       }
+    }
+
+    // prints the graph in the form of a 
+    // adjacency list
+    public void printGraph(){
+
+        if(isEmpty()){
+            System.out.println("The Graph is empty");
+        }else{
+            for(Node nd : graph){
+                System.out.println("\n"+nd.label);
+                for (Edge edg : nd.edges) {
+                    System.out.print(" --> "+edg.destination.label+"("+edg.weight+")");
+                }
+            }
+        }
     }
 
     // delete any town that is supplied to this method as an 
@@ -141,6 +152,7 @@ public class GraphTown{
 
         GraphTown test = new GraphTown();
         test.createGraph("botswanaTownsAndCitiesData.txt");
+        test.printGraph();
 
     }
 
