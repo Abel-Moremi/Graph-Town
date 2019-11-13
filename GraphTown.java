@@ -29,17 +29,16 @@ public class GraphTown{
             }
         }
         
+        Edge tempEdge = new Edge();
+        tempEdge.weight = weight;
+
         // adding edge to first town
-        Edge one = new Edge();
-        one.destination = townTwo;
-        one.weight = weight;
-        townOne.edges.add(one);
+        tempEdge.destination = townTwo;
+        townOne.edges.add(tempEdge);
 
         // adding edge to second town
-        Edge two = new Edge();
-        two.destination = townTwo;
-        two.weight = weight;
-        townTwo.edges.add(two);
+        tempEdge.destination = townTwo;
+        townTwo.edges.add(tempEdge);
 
     }
 
