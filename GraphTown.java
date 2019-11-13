@@ -22,6 +22,13 @@ public class GraphTown{
     // passed as argument to this method
     public void insertEdge(Node townOne, Node townTwo, int weight){
         
+        for (Edge edg : townOne.edges) {
+            if((edg.destination.label).equals(townTwo.label)){
+                System.out.println("The Edge already exists");
+                return;
+            }
+        }
+        
         // adding edge to first town
         Edge one = new Edge();
         one.destination = townTwo;
