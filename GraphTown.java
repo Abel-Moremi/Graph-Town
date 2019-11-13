@@ -45,12 +45,16 @@ public class GraphTown{
     // deletes an edge between any two towns passed as 
     // argument to this method
     public void deleteEdge(Node townOne, Node townTwo){
-        for (Edge edg : townOne.edges) {
+
+        for (int i = 0; i < townOne.edges.size(); i++) {
+            Edge edg = townOne.edges.get(i);
             if((edg.destination.label).equals(townTwo.label)){
                townOne.edges.remove(edg);
             }
         }
-        for (Edge edg : townTwo.edges) {
+
+        for (int j = 0; j < townTwo.edges.size(); j++) {
+            Edge edg = townTwo.edges.get(j);
             if((edg.destination.label).equals(townOne.label)){
                townTwo.edges.remove(edg);
             }
@@ -143,7 +147,20 @@ public class GraphTown{
 
     // delete any town that is supplied to this method as an 
     // argument. Delete all edges to all other towns before deleting this town
-    public void deleteTown(){}
+    public void deleteTown(String town){
+        Node townNd = null;
+        for (Node nd : graph) {
+            if(nd.label.equals(town)) townNd = nd;
+        }
+        if(townNd == null){
+            System.out.print("Town not found");
+        }else{
+            for (Node nd : graph) {
+               deleteEdge(townNd, nd);
+            }
+        }
+
+    }
 
     // pass a list of towns as arguments to this method which declares
     // the list as neighbors of this town.
@@ -169,6 +186,8 @@ public class GraphTown{
 
         GraphTown test = new GraphTown();
         test.createGraph("botswanaTownsAndCitiesData.txt");
+        //test.printGraph();
+        test.deleteTown("Gaborone");
         test.printGraph();
 
     }
