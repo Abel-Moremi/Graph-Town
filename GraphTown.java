@@ -53,9 +53,10 @@ public class GraphTown{
             for (Node nd : graph) {
                 for (Edge edge : nd.edges) {
                     if(edge.destination.label.equals(town.label)){
-                      graph.add(town);
-                      conFound = true;
-                      return;
+                        graph.add(town);
+                        System.out.println("I came here");
+                        conFound = true;
+                        return;
                     }
                 }
             }
@@ -88,7 +89,7 @@ public class GraphTown{
                     place = townTemp[0];
                     townTemp[0] = "0";
                     Node temp = new Node();
-                    temp.label = townTemp[0];
+                    temp.label = place;
 
                     for (int i = 1; i < townTemp.length; i++) {
                         if(Integer.parseInt(townTemp[i]) != 0){
@@ -99,7 +100,7 @@ public class GraphTown{
                             tempEdge.destination = tempDest;
                             //tempEdge.weight = Integer.parseInt(townTemp[i]);
                             try { tempEdge.weight = Integer.parseInt(townTemp[i]); } catch (NumberFormatException nfe) { nfe.printStackTrace(); }
-                            //temp.edges.add(tempEdge);
+                            temp.edges.add(tempEdge);
                         }
                     }
                     insertTown(temp);
@@ -130,7 +131,7 @@ public class GraphTown{
     // defines a vertex in a graph
     public class Node{
         private String label;
-        private List<Edge> edges;
+        private List<Edge> edges = new ArrayList<Edge>();
     }
 
     // defines edge associated with a vertex
