@@ -44,7 +44,18 @@ public class GraphTown{
 
     // deletes an edge between any two towns passed as 
     // argument to this method
-    public void deleteEdge(){}
+    public void deleteEdge(Node townOne, Node townTwo){
+        for (Edge edg : townOne.edges) {
+            if((edg.destination.label).equals(townTwo.label)){
+               townOne.edges.remove(edg);
+            }
+        }
+        for (Edge edg : townTwo.edges) {
+            if((edg.destination.label).equals(townOne.label)){
+               townTwo.edges.remove(edg);
+            }
+        }
+    }
 
     // inserts a town into graph data structure. 
     // This call for assigning edges to at least one other 
