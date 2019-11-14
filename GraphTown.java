@@ -129,6 +129,21 @@ public class GraphTown{
       }
     }
 
+
+    // prints the distance between two given 
+    // towns
+    public void distBetweenCities(String townOne, String townTwo){
+        Node nd = findNodeTowwn(townOne);
+
+        for (Edge edg : nd.edges) {
+            if((townTwo).equals(edg.destination.label)){
+                System.out.println(nd.label+" --> "+edg.destination.label+"("+edg.weight+")");
+            }
+        }
+           
+        
+    }
+
     // prints the graph in the form of a 
     // adjacency list
     public void printGraph(){
@@ -169,13 +184,47 @@ public class GraphTown{
     // create a minimum spanning tree and print such tree for us to see
     // using prims algorithm
     public void showMST(String town){
+       
         if(isEmpty()){
             System.out.println("The graph is empty");
         }else{
-           Node startVertix = findNodeTowwn(town);
-           for (Edge edg : startVertix.edges) {
+
+            ArrayList<String> visitedList = new ArrayList<String>();
+            Boolean visited = false;
+            Node currVertix = findNodeTowwn(town);
+            visitedList.add(currVertix.label);
+            Edge currMin = null;
+
+            while(visitedList.size() < graph.size()){
+
+                for (Edge eg : currVertix.edges) {
+                    for (String vit : visitedList) {
+                        if(!(vit.equalsIgnoreCase(eg.destination.label))){
+                            currMin = eg;
+                        }
+                    }
+                }
                
-           } 
+                for (Edge edg : currVertix.edges) {
+                    for (String vit : visitedList) {
+                        if(vit.equalsIgnoreCase(edg.destination.label)){
+                            visited = true;
+                        }
+                    }
+
+                    if(currMin.weight > edg.weight && !visited){
+                        currMin = edg;
+                        visited = false;
+                    }
+
+                    visited = false;
+                }
+
+                System.out.println(currVertix.label+" ---> "+currMin.destination.label+"("+currMin.weight+")");
+                currVertix = findNodeTowwn(currMin.destination.label);
+                visitedList.add(currVertix.label);
+
+            } 
         }
     }
 
@@ -209,8 +258,10 @@ public class GraphTown{
         GraphTown test = new GraphTown();
         test.createGraph("botswanaTownsAndCitiesData.txt");
         //test.printGraph();
-        test.deleteTown("Gaborone");
-        test.printGraph();
+        //test.deleteTown("Gaborone");
+        //test.printGraph();
+        //test.showMST("Serowe");
+        test.distBetweenCities("Serowe", "Gaborone");
 
     }
 
